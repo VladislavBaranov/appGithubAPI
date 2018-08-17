@@ -1,0 +1,10 @@
+
+$ams-black-primary: mat-palette($mat-grey, 700, 300, 900);
+$ams-black-accent: mat-palette($mat-blue-grey, 400);
+$ams-black-warn: mat-palette($mat-red, 900);
+
+$ams-black-theme: mat-dark-theme(
+  $ams-black-primary,
+  $ams-black-accent,
+  $ams-black-warn
+);

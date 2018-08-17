@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+@import "styles-variables";
+
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/fa-solid';
+@import '~@fortawesome/fontawesome-free/scss/fa-brands';
+
+@import 'styles-reset';
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+@import 'themes/default-theme.scss';
+@import 'themes/light-theme.scss';
+@import 'themes/black-theme.scss';
+@import 'themes/nature-theme.scss';
+
+@import 'styles-reset.scss-theme';
+@import 'app/app.component.scss-theme';
+@import 'app/app-github/app-github/app-github.component.scss-theme';
+
+@mixin custom-components-theme($theme) {
+    @include ams-styles-reset-theme($theme);
+    @include ams-app-component-theme($theme);
+    @include ams-app-github-component-theme($theme);
+}
+
+.default-theme {
+    @include angular-material-theme($ams-theme);
+    @include custom-components-theme($ams-theme);
+}
+  
+.light-theme {
+    @include angular-material-theme($ams-light-theme);
+    @include custom-components-theme($ams-light-theme);
+}
+  
+.black-theme {
+    @include angular-material-theme($ams-black-theme);
+    @include custom-components-theme($ams-black-theme);
+}
+  
+.nature-theme {
+    @include angular-material-theme($ams-nature-theme);
+    @include custom-components-theme($ams-nature-theme);
+}
+  
+

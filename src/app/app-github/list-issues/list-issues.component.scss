@@ -1,0 +1,52 @@
+h2, .loading {
+  margin: 20px;
+  text-align: center;
+  opacity: 0.6;
+}
+
+.hidden-paginator {
+  color: rgb(90, 36, 36);
+  filter: blur(100px);
+  max-height: 0px;
+}
+
+.messege-info {
+  text-align: center;
+  opacity: 0.6;
+  color: rgb(80, 2, 2);  
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 20px
+}
+
+.mat-header-cell {
+  height: 4px;
+  display: flex;
+  align-items: center;
+  padding-left: 54px;
+  font-size: 3px;
+}
+
+.mat-header-row {
+  min-height: 0px;
+  display: none;
+}
+
+img {
+  max-width: 50px;
+}
+
+.mat-column-avatar {
+  max-width: 100px;
+}
+
+.mat-column-issue {
+  max-width: 400px;
+  padding-top: 15px
+}

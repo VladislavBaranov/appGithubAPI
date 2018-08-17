@@ -1,0 +1,54 @@
+<div class=" row  justify-content-center">
+	<form class="example-form" (ngSubmit)="doSearch(interpellate.value)">
+		<mat-form-field class="example-full-width">
+			<input type="text" placeholder="Enter name of Githab" #interpellate matInput>
+		</mat-form-field>
+		<button type="submit" mat-button color="primary">Find!</button>
+	</form>
+</div>
+
+<div class="row  justify-content-center">
+	<p *ngIf="searchGithubService.initialised && searchGithubService.loading" class="lead">Loading... </p>
+	<p *ngIf="searchGithubService.initialised && !searchGithubService.loading && searchGithubService.repositories?.length === 0"
+	 class="lead">Nothing find</p>
+	<p *ngIf="!searchGithubService.initialised" class="lead">Enter a search string above and press find</p>
+</div>
+
+<div *ngIf="searchGithubService.initialised && !searchGithubService.loading && !(searchGithubService.repositories.length === 0)"
+ class="row  justify-content-center">
+	<mat-card class="card">
+
+		<div class="card-header row  justify-content-center">
+			<a href="{{searchGithubService.repositories[0]?.owner.html_url}}" target="_blank">
+				<img src="{{searchGithubService.repositories[0]?.owner.avatar_url}}" alt="Avatar">
+			</a>
+			<div class="col">
+				<div class="card-header-title">Name of GitHub:</div>
+				<div class="card-header-name">
+					<a href="{{searchGithubService.repositories[0]?.owner.html_url}}" target="_blank">
+						<strong>{{term}}</strong>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<p *ngIf="searchGithubService.repositories.length === 0">This user have not repositories</p>
+		<form *ngIf="!(searchGithubService.repositories.length === 0) " class="example-form" (ngSubmit)="doSearchIssues(inputValue.value)">
+			<mat-form-field class="example-full-width">
+				<input type="text" placeholder="Repository" aria-label="Number" matInput [formControl]="formControl" [matAutocomplete]="auto"
+				 #inputValue (keyup)="filterValues(inputValue.value)" (focus)="filterValues('')">
+				<mat-autocomplete #auto="matAutocomplete">
+					<mat-option *ngFor="let option of options " [value]="option" (click)="doSearchIssues(option)">
+						{{option}}
+					</mat-option>
+				</mat-autocomplete>
+			</mat-form-field>
+		</form>
+	</mat-card>
+</div>
+
+<div class="row  justify-content-center">
+	<p *ngIf="inputValidationRepo" class="validation">This repository does not exist</p>
+</div>
+
+<router-outlet></router-outlet>

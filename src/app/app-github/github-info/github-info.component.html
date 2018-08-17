@@ -1,0 +1,41 @@
+<div class="container  col-xl-8 col-lg-10 col-md-12">
+
+	<mat-card>
+		<div class="row  justify-content-center">
+
+			<div class="poster col-md-6  col-sm-12 ">
+				<img src="{{ issue?.user?.avatar_url }}" *ngIf="!( issue?.user?.avatar_url === 'N/A') " alt="Avatar">
+				<img src="https://m.media-amazon.com/images/G/01/imdb/images/nopicture/180x268/film-173410679._CB499558812_.png" *ngIf="issue?.user?.avatar_url === 'N/A' "
+				 alt="Not download">
+			</div>
+
+			<div class="information col-md-6  col-sm-10 col-xs-12">
+				<div class="col">
+					<div class="row">
+						<p>
+							<strong> {{issue?.title}} #{{issue?.number}}</strong>
+						</p>
+					</div>
+					<div class="row">
+						<p>Created:	{{ issue?.created_at | date }}</p>
+					</div>
+				</div>
+				<div class="col">
+					<div class="row">
+						<p style="width:20%">User</p>
+						<a href="{{issue?.user?.html_url}}" target="_blank">{{issue?.user?.login}}</a>
+					</div>
+				</div>
+				<div class="col">
+					<div class="row">
+						<p style="width:20%">Issue</p>
+						<p style="width:80%">{{issue?.body}}</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<button mat-button color="primary"(click)="navigateBack()"> Back </button>
+	</mat-card>
+
+</div>

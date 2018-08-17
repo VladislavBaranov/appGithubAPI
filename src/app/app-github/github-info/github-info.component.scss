@@ -1,0 +1,53 @@
+@import '../../../styles-variables';
+ 
+.container {
+  margin-bottom: 20px; 
+  font-size: 12px;
+  word-wrap: break-word;
+
+  a {
+    cursor: pointer;
+  }
+
+  mat-icon {
+    padding-top: 2px;
+    font-size: 16px;
+  }
+
+  .poster {
+    text-align: center;
+    padding: 10px; 
+
+    img{
+      margin: 0 auto;
+      border-radius:50% ;
+      width: 250px;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, xl)) {
+      img{
+        width:200px;      
+      }
+    }
+
+    @media (max-width: map-get($grid-breakpoints, lg)) {
+      img{
+        max-width: 150px;   
+      }
+    }
+
+    @media (max-width: map-get($grid-breakpoints, md)) {
+      img{
+        max-width: 150px;  
+      }
+    }
+
+    @media (max-width: map-get($grid-breakpoints, sm)) {
+      img{
+        max-width:100px;   
+      }
+    }
+
+  } 
+  
+}

@@ -1,0 +1,57 @@
+@import '../../../styles-variables';
+
+.card {
+  min-width: 500px;
+  min-height: 100px;
+}
+
+mat-card{
+  max-width: 500px;
+}
+
+.name-github{
+  text-align: center;
+  opacity: 0.7
+}
+
+.validation {
+  margin-top: 30px;
+  color: rgb(90, 36, 36);
+  opacity: 0.7
+}
+.card-header {
+  margin-left: 30px;
+  margin-bottom: 5px;
+}
+.card-header-image {
+  background-size: cover;
+}
+
+img {
+  max-width: 50px;
+  max-height: 50px;
+  margin-right: 20px;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin-left: 30px;
+  
+  .example-full-width {
+    width: 80%;
+  }
+
+  @media (max-width: map-get($grid-breakpoints, sm)) {
+      .example-full-width {
+        width: 70%;
+        }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, xs)) {
+    .example-full-width {
+      width: 50%;
+      }
+  }
+}

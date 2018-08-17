@@ -1,0 +1,52 @@
+<div>
+	<h2 [hidden]="resultsLength===0">Issues</h2>
+	<p class="loading" [hidden]="!isLoadingResults">Loading... </p>
+</div>
+
+<div class="example-container mat-elevation-z8" [ngClass]="resultsLength===0 ? 'hidden-paginator': ''">
+
+	<mat-table #table [dataSource]="dataSource" class="example-table">
+
+		<ng-container matColumnDef="avatar">
+			<mat-header-cell *matHeaderCellDef></mat-header-cell>
+			<mat-cell *matCellDef="let row">
+				<a href="{{row.user.html_url}}" target="_blank">
+					<img src="{{row.user.avatar_url}}" alt="Not download poster">
+				</a>
+			</mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="issue">
+			<mat-header-cell *matHeaderCellDef>
+				<!-- <strong></strong> -->
+			</mat-header-cell>
+			<mat-cell *matCellDef="let row">
+				<div>
+					<div>
+						<p>
+							<strong>{{row.title}}</strong>
+						</p>
+					</div>
+					<div>
+						<p>#{{row.number}} opened: {{ row.created_at | date }}
+							<a href="{{row.user.html_url}}" target="_blank">{{row.user.login}}</a>
+							<button mat-button color="primary" [routerLink]="['../../issue', term, repo, row.number,{pageindex:pageIndex,pagesize:pageSize}]">
+								...more </button>
+						</p>
+					</div>
+				</div>
+			</mat-cell>
+		</ng-container>
+
+		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+	</mat-table>
+
+	<mat-paginator [length]="resultsLength" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20, 50, 100]" showFirstLastButtons>
+	</mat-paginator>
+</div>
+
+<div [hidden]="!(resultsLength===0)">
+	<p class="messege-info"> This repository have not issues </p>
+</div>
